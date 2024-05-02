@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 1174374615}
   - component: {fileID: 1174374614}
   - component: {fileID: 1174374613}
+  - component: {fileID: 1174374616}
   m_Layer: 0
   m_Name: Wall
   m_TagString: DamageWall
@@ -345,6 +346,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1174374616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174374612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad2e3ea940514f447a350a7db8f067af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 3
 --- !u!1 &1424233063
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     private PlayerMovement playerMovement;
+    private float shootTimer;
 
     private void Awake()
     {
@@ -19,11 +20,16 @@ public class PlayerShoot : MonoBehaviour
 
     void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        shootTimer += Time.deltaTime;
+        if (shootTimer >= 0.2f)
         {
-            GameObject obj = Instantiate(bulletPrefab);
-            obj.transform.position = transform.position;
-            obj.GetComponent<BulletMovement>().SetDirection(playerMovement.Direction.normalized);
+            if (Input.GetKey(KeyCode.Space))
+            {
+                GameObject obj = Instantiate(bulletPrefab);
+                obj.transform.position = transform.position;
+                obj.GetComponent<BulletMovement>().SetDirection(playerMovement.Direction.normalized);
+                shootTimer = 0;
+            }
         }
     }
 }
