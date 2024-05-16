@@ -12,7 +12,10 @@ public class EnemyShoot : MonoBehaviour
 
     private void Awake()
     {
-        targetTransform = GameObject.Find("Player").transform;
+        if (GameObject.Find("Player") != null)
+        {
+            targetTransform = GameObject.Find("Player").transform;
+        }
     }
 
     void Update()
@@ -22,6 +25,10 @@ public class EnemyShoot : MonoBehaviour
 
     void Shoot()
     {
+        if (targetTransform == null)
+        {
+            return;
+        }
         if (Vector2.Distance(targetTransform.position, transform.position) < shootDistance)
         {
             shootTimer += Time.deltaTime;

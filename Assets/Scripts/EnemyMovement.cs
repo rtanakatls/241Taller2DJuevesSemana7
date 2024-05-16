@@ -13,7 +13,10 @@ public class EnemyMovement : MonoBehaviour
 
     private void Awake()
     {
-        targetTransform = GameObject.Find("Player").transform;
+        if (GameObject.Find("Player") != null)
+        {
+            targetTransform = GameObject.Find("Player").transform;
+        }
         rb2d=GetComponent<Rigidbody2D>();
     }
 
@@ -24,6 +27,11 @@ public class EnemyMovement : MonoBehaviour
 
     void Move()
     {
+        if (targetTransform == null)
+        {
+            rb2d.velocity = Vector2.zero;
+            return;
+        }
         if (Vector2.Distance(targetTransform.position, transform.position) < followDistance && Vector2.Distance(targetTransform.position, transform.position)>stopDistance)
         {
             Vector2 direction = targetTransform.position - transform.position;
