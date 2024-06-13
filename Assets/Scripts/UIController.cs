@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI lifeText;
 
     [SerializeField] private Image lifeBarImage;
+    [SerializeField] private Image enemyLifeBarImage;
     public static UIController Instance
     {
         get
@@ -33,4 +34,11 @@ public class UIController : MonoBehaviour
     {
         lifeBarImage.fillAmount = life / maxLife;
     }
+
+    public void UpdateEnemyLifeBar(float life, float maxLife)
+    {
+        enemyLifeBarImage.fillAmount = life / maxLife;
+    }
+
+
 }
