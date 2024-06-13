@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class PlayerLife : MonoBehaviour
         if (life <= 0)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene("GameOverScene");
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
